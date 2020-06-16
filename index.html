@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="components/activeCell.js"></script>
+    <script src="mathEngine.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> PROD -->
+</head>
+
+<body>
+    <div  id="app">
+        <h1>Gangprøven</h1>
+        {{message}}
+        <h2 v-bind:content="message">
+
+        </h2>
+        <div>
+            {{mathEngine.currentMultiplication}}
+        </div>
+        <div>
+            Status: {{currentStatus}}
+        </div>
+        <input type="number" v-model="userAnswer" v-on:keyup.enter="answer(mathEngine.currentMultiplication, userAnswer)" />
+        <button v-on:click="mathEngine.getNextMultiplication()">Nytt stykke</button>
+        <active-cell></active-cell>
+    </div>
+    
+
+</body>
+   <script src="app.js"></script>
+</html>
